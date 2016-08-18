@@ -28,3 +28,7 @@
   content: "";
   padding: 0;
 }
+
+/* bootstrap styles */
+
+.top10 { margin-top:10px; }
