@@ -5,9 +5,10 @@ var app = angular.module('githubViewer', []);
 app.controller("MainController", function($scope, $http) {
 
     $scope.message = "Hello, Angular!";
-    $scope.username = "robconery";
+    $scope.username = "angular";
     $scope.user = null;
     $scope.userRepos = null;
+    $scope.repoSortOrder = '-stargazers_count';
 
     var onError = function(reason) {
         $scope.error = "Could not fetch the user";
