@@ -8,40 +8,17 @@
 </head>
 <body>
 
-    <div ng-controller="MainController">
-
-        <div class="container">
-
-            <h1>{{ message }}</h1>
-
-            <div class="alert alert-danger" ng-show="error">
-                {{ error }}
-            </div>
-
-            <div class="row">
-                <div class="col-md-4">
-                    <form role="form" ng-submit="searchUser(username)">
-                        <div class="form-group">
-                            <label for="username">Username:</label>
-                            <input type="text" class="form-control" id="username" ng-model="username" required />
-                        </div>
-                        <button class="btn btn-default" type="submit">Search</button>
-                        <button class="btn btn-default" type="reset" ng-click="resetSearch()">Reset</button>
-                    </form>
-                </div>
-            </div>
-
-            <div ng-include="'templates/userdetails.html'">
-            </div>
-
-        </div>
-    </div>
+<div class="container">
+    <h1 class="page-header">Github viewer</h1>
+    <ng-view></ng-view>
+</div>
 
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="app.js"></script>
 <script src="js/services/github.js"></script>
 <script src="js/controllers/MainController.js"></script>
-
+<script src="js/controllers/UserController.js"></script>
+<script src="js/controllers/RepoController.js"></script>
 </body>
 </html>
