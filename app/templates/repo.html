@@ -1,8 +1,38 @@
-<div class="row">
+<div class="row top10">
     <div class="col-md-4">
-        <h1 class="page-header">{{ message }}</h1>
+        <div class="alert alert-danger" ng-show="error">
+            {{ error }}
+        </div>
     </div>
 </div>
 
-<div>Username: {{ username }}</div>
-<div>Reponame: {{ reponame }}</div>
+<a href="/#/main">Home</a> |
+<a href="/#/user/{{ repo.owner.login}}">{{ repo.owner.login }}</a>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>{{ repo.name }}</h2>
+        <div>Created: {{ repo.created_at | date }}</div>
+        <div>Issues: {{ repo.open_issues_count | number }}</div>
+        <div>Suscribers: {{ repo.subscribers_count | number }} </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <table class="table" ng-show="suscribers">
+            <thead>
+            <tr>
+                <th>Login</th>
+                <th>Avatar</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="suscriber in suscribers | orderBy:'login'">
+                <td><a href="{{ suscriber.html_url }}">{{ suscriber.login }}</a></td>
+                <td><img width="80" ng-src="{{ suscriber.avatar_url }}"/></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

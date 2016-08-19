@@ -29,4 +29,9 @@ app.controller("UserController", function($scope, github, $routeParams) {
         $scope.userRepos = null;
         $scope.error = null;
     };
+
+    $scope.getRepoUrl = function(username, userRepos) {
+        return "/#/repo/" + username + "/" + userRepos.name;
+    };
+
 });

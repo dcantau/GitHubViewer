@@ -13,8 +13,17 @@ app.factory('github', function($http) {
                 return response.data;
             });
         },
-        sayHello: function(name) {
-            return "Hello," + name + "!";
+        getRepoDetails: function(username, reponame) {
+            var repo_url = "https://api.github.com/repos/" + username + "/" + reponame;
+            return $http.get(repo_url).then(function(response) {
+                return response.data;
+            });
+        },
+        getSuscribers: function(repo) {
+            var subscribers_url = repo.subscribers_url;
+            return $http.get(subscribers_url).then(function(response) {
+                return response.data;
+            });
         }
     };
 });

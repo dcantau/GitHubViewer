@@ -40,7 +40,7 @@
             </thead>
             <tbody>
             <tr ng-repeat="userRepo in userRepos | orderBy:repoSortOrder">
-                <td>{{ userRepo.name }}</td>
+                <td><a href="{{ getRepoUrl(username, userRepo) }}">{{ userRepo.name }}</a></td>
                 <td>{{ userRepo.stargazers_count | number }}</td>
                 <td>{{ userRepo.language }}</td>
             </tr>
